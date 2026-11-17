@@ -64,7 +64,7 @@ class BookingApp {
         this.displayBookings();
 
         // Show success message and reset form
-        this.showMessage(`Booking created for ${name}!`, 'success');
+        this.showMessage(`Booking created for ${name}!`, 'success', 4000);
         this.form.reset();
     }
 
@@ -73,10 +73,12 @@ class BookingApp {
     }
 
     cancelBooking(id) {
-        this.bookings = this.bookings.filter(booking => booking.id !== id);
-        this.saveBookings();
-        this.displayBookings();
-        this.showMessage('Booking cancelled successfully', 'success');
+        if (confirm('Are you sure you want to cancel this booking?')) {
+            this.bookings = this.bookings.filter(booking => booking.id !== id);
+            this.saveBookings();
+            this.displayBookings();
+            this.showMessage('Booking cancelled successfully', 'success', 4000);
+        }
     }
 
     displayBookings() {
@@ -121,14 +123,14 @@ class BookingApp {
         return text.replace(/[&<>"']/g, char => map[char]);
     }
 
-    showMessage(text, type) {
+    showMessage(text, type, duration = 3000) {
         this.messageDiv.textContent = text;
         this.messageDiv.className = `message ${type}`;
 
         setTimeout(() => {
             this.messageDiv.textContent = '';
             this.messageDiv.className = 'message';
-        }, 3000);
+        }, duration);
     }
 }
 
