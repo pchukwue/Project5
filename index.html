@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBook - Simple Booking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QuickBook</h1>
+
+        <div class="booking-section">
+            <h2>New Booking</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="customerName">Customer Name *</label>
+                    <input type="text" id="customerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service *</label>
+                    <select id="service" required>
+                        <option value="">-- Select Service --</option>
+                        <option value="Consultation">Consultation</option>
+                        <option value="Haircut">Haircut</option>
+                        <option value="Cleaning">Cleaning</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingDate">Date *</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingTime">Time *</label>
+                    <input type="time" id="bookingTime" required>
+                </div>
+
+                <button type="submit">Create Booking</button>
+            </form>
+
+            <div id="message" class="message"></div>
+        </div>
+
+        <div class="bookings-section">
+            <h2>Upcoming Bookings</h2>
+            <div id="bookingsList" class="bookings-list">
+                <p class="empty-message">No bookings yet. Create one to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
